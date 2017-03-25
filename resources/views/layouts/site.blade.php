@@ -4,7 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  
+  <title>{{ isset($seo['titulo']) ? $seo['titulo'] : config('seo.titulo','Site Dinamico') }}</title>
+  <meta name="description" content="{{ isset($seo['descricao']) ? $seo['descricao'] : config('seo.descricao') }}">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" value="sumary">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Title Here" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ isset($seo['url']) ? $seo['url'] : config('app.url') }}" />
+  <meta property="og:image" content="{{ isset($seo['imagem']) ? $seo['imagem'] : config('seo.imagem') }}" />
+  <meta property="og:description" content="{{ isset($seo['descricao']) ? $seo['descricao'] : config('seo.descricao') }}" />
 
   <!-- Styles -->
   <!--Import Google Icon Font-->
